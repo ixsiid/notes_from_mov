@@ -1,0 +1,25 @@
+{
+  "name": "notes_from_mov",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://ixsiid@github.com/ixsiid/notes_from_mov.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ixsiid/notes_from_mov/issues"
+  },
+  "homepage": "https://github.com/ixsiid/notes_from_mov#readme",
+  "dependencies": {
+    "pngjs": "^5.0.0",
+    "rgb-hsv": "^1.0.0",
+    "svg.js": "^2.7.1",
+    "svgdom": "^0.1.8"
+  }
+}
