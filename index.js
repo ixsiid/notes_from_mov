@@ -90,8 +90,9 @@ process.argv.filter((x, i) => i > 1).forEach(dir => {
 		})
 		.then(notes => {
 			// 両隣がONだった場合、ご認識としてOFFにする
-			keys.slice(1, -1).forEach((px, i) => {
-				i = i + 1;
+			// 黒鍵だけにする
+			black.forEach(px => {
+				const i = keys.indexOf(px);
 				['left', 'right'].forEach(hand => {
 					notes[hand][px].forEach((_, j) => {
 						if (notes[hand][keys[i - 1]][j] && notes[hand][keys[i + 1]][j]) notes[hand][px][j] = 0;
@@ -161,7 +162,7 @@ process.argv.filter((x, i) => i > 1).forEach(dir => {
 			['left', 'right'].map(hand =>
 				Object.entries(notes[hand]).map(([px, note]) =>
 					note.map(([start, finish]) =>
-						[[start, keys.indexOf(parseInt(px)) + 0x12, true], [finish, keys.indexOf(parseInt(px)) + 0x12, false]])).flat().flat().sort((a, b) => a[0] == b[0] ? 0 : a[0] > b[0] ? 1 : -1)).forEach(track => {
+						[[start, keys.indexOf(parseInt(px)) + 0x18, true], [finish, keys.indexOf(parseInt(px)) + 0x18, false]])).flat().flat().sort((a, b) => a[0] == b[0] ? 0 : a[0] > b[0] ? 1 : -1)).forEach(track => {
 							buffer[index++] = 0x4d, buffer[index++] = 0x54, buffer[index++] = 0x72, buffer[index++] = 0x6b;
 							const length_index = index;
 							buffer[index++] = 0x4d, buffer[index++] = 0x54, buffer[index++] = 0x72, buffer[index++] = 0x6b; // データ長
